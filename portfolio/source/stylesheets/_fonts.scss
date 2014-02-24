@@ -1,0 +1,19 @@
+body {
+  font-family: 'Open Sans', serif;
+}
+
+.highlight {
+  text-transform: uppercase;
+  font-family: 'Fjalla One', Helvetica, Arial, sans-serif;
+}
+
+.head-title, .head-nav, h1, h2, h3, h4, h5, h6 {
+  @extend .highlight;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}

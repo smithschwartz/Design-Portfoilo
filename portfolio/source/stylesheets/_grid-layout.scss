@@ -1,0 +1,78 @@
+//Variables
+$visual-grid: true;
+$grid-columns:12;
+$gutter: 1em;
+$border-box: true;
+
+//Breakpoints
+$baby-bear: new-breakpoint(min-width 430px);
+$mama-bear: new-breakpoint(min-width 767px);
+$goldilocks: new-breakpoint(max-width 999px min-width 500px);
+$papa-bear: new-breakpoint(min-width 1000px);
+
+body {
+  margin: 0;
+  padding: 0 1em;
+  @include linear-gradient(#efefef, #fff);
+}
+
+header {
+  padding-top: 2em;
+}
+
+.parent-element {
+  @include outer-container;
+}
+
+body, .head-title, .head-nav, .thumbnail-grid {
+  @extend .parent-element;
+}
+
+.head-nav {
+  li {
+    @include span-columns(2.5);
+  }
+}
+
+li.thumbnail {
+  margin-bottom: 2em;
+  @include span-columns(9);
+}
+
+@include media($baby-bear) {
+  .head-title {
+    @include span-columns(7.5);
+  }
+  .head-nav {
+    li {
+      text-align: right;
+      @include span-columns(1.5);
+    }
+  }
+}
+
+@include media($mama-bear) {
+  .head-title {
+    @include span-columns(9.26);
+  }
+  .head-nav {
+    li {
+      text-align: right;
+      @include span-columns(1);
+    }
+  }
+}
+
+@include media($goldilocks) {
+  li.thumbnail {
+    @include span-columns(4);
+    @include omega(2n);
+  }
+}
+
+@include media($papa-bear) {
+  li.thumbnail {
+    @include span-columns(3);
+    @include omega(3n);
+  }
+}
